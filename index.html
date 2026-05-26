@@ -1,4 +1,37 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Jason Clark - Developer Portfolio</title>
+    <style>
+        body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; }
+        .repo { background: #f6f8fa; margin: 10px 0; padding: 15px; border-radius: 8px; }
+        .repo a { font-size: 1.2em; text-decoration: none; color: #0969da; }
+        .repo p { margin: 5px 0 0; color: #57606a; }
+    </style>
+</head>
+<body>
+    <h1>Jason Clark - Full-Stack Developer</h1>
+    <p>Live projects – updated automatically from GitHub</p>
+    <div id="repos">Loading projects...</div>
+
+    <script>
+        fetch('https://api.github.com/users/jasonclarkagain/repos?sort=updated&per_page=50')
+            .then(res => res.json())
+            .then(repos => {
+                const container = document.getElementById('repos');
+                container.innerHTML = repos.map(repo => `
+                    <div class="repo">
+                        <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                        <p>${repo.description || 'No description'}</p>
+                    </div>
+                `).join('');
+            })
+            .catch(err => {
+                document.getElementById('repos').innerHTML = 'Error loading repos. Check back soon.';
+            });
+    </script>
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
