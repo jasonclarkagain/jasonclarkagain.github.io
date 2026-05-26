@@ -2,6 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Professional Development Portfolio - Jason Clark</title>
+    <style>
+        body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 40px; line-height: 1.6; }
+        .repo-list { list-style: none; padding: 0; }
+        .repo-item { background: #161b22; padding: 15px; margin: 10px 0; border: 1px solid #30363d; border-radius: 6px; }
+        h1 { border-bottom: 2px solid #58a6ff; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Professional Development Portfolio</h1>
+    <p><strong>Status:</strong> Active Full-Stack Development & Deployment</p>
+    <div id="repos" class="repo-list">Loading projects...</div>
+
+    <script>
+        fetch('https://api.github.com/users/jasonclarkagain/repos?sort=updated')
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('repos');
+                container.innerHTML = data.map(repo => `
+                    <div class="repo-item">
+                        <strong><a href="${repo.html_url}" style="color:#58a6ff;">${repo.name}</a></strong>
+                        <p>${repo.description || 'Web template & architecture project.'}</p>
+                    </div>
+                `).join('');
+            });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason Clark – Developer Portfolio</title>
     <style>
