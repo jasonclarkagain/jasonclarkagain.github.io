@@ -2,32 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Professional Development Portfolio - Jason Clark</title>
+    <title>Professional Development Portfolio - Jason Clarke</title>
     <style>
-        body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 40px; line-height: 1.6; }
-        .repo-list { list-style: none; padding: 0; }
-        .repo-item { background: #161b22; padding: 15px; margin: 10px 0; border: 1px solid #30363d; border-radius: 6px; }
-        h1 { border-bottom: 2px solid #58a6ff; padding-bottom: 10px; }
+        body {
+            font-family: sans-serif;
+            background: #fff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Professional Development Portfolio</h1>
-    <p><strong>Status:</strong> Active Full-Stack Development & Deployment</p>
-    <div id="repos" class="repo-list">Loading projects...</div>
-
-    <script>
-        fetch('https://api.github.com/users/jasonclarkagain/repos?sort=updated')
-            .then(res => res.json())
-            .then(data => {
-                const container = document.getElementById('repos');
-                container.innerHTML = data.map(repo => `
-                    <div class="repo-item">
-                        <strong><a href="${repo.html_url}" style="color:#58a6ff;">${repo.name}</a></strong>
-                        <p>${repo.description || 'Web template & architecture project.'}</p>
-                    </div>
-                `).join('');
-            });
-    </script>
+    <div class="header">
+        <h1>Jason Clarke</h1>
+        <p>Professional Development Portfolio</p>
+    </div>
+    <div class="content">
+        <h2>Welcome</h2>
+        <p>This site is under construction. Check back soon.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2026 Jason Clarke</p>
+    </div>
 </body>
 </html>
-
